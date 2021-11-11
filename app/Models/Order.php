@@ -11,13 +11,6 @@ class Order extends Model
 {
     use HasFactory, ModelLogTrait;
 
-    // public static function boot()
-    // {
-    //     // static::created(function ($model) {
-    //     //     $model = $model->getData($model);
-    //     // });
-    // }
-
     protected $fillable = ['value', 'status', 'user_id'];
 
     public function user()

@@ -15,11 +15,10 @@ class OrderObserver
      * @return void
      */
     public function created(Order $order)
-    {   
+    {
 
-        
-        $user = User::where('id',$order->user_id)->first();
-        $user->order_count++; 
+        $user = User::where('id', $order->user_id)->first();
+        $user->order_count++;
         $user->update();
     }
 

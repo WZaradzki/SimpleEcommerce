@@ -13,13 +13,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, ModelLogTrait;
 
-    // public static function boot()
-    // {
-    //     static::created(function ($model) {
-    //         $model = $model->getData($model);
-    //     });
-    // }
-
     protected $fillable = [
         'email', 'order_count'
     ];

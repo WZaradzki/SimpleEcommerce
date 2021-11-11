@@ -11,5 +11,4 @@ class Product extends Model
     use HasFactory, ModelLogTrait;
 
     protected $fillable = ['name', 'price'];
-
 }

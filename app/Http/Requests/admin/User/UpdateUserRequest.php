@@ -19,7 +19,6 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'id' => ['required'],
             'email' => [ 'email', 'unique:users'],
             'order_count' => ['required', 'numeric'], 
         ];
