@@ -20,7 +20,7 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'email' => [ 'email', 'unique:users'],
-            'order_count' => ['required', 'numeric'], 
+            'order_count' => ['numeric'], 
         ];
     }
 }
