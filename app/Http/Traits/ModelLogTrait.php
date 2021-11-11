@@ -22,9 +22,5 @@ trait ModelLogTrait
                 ]);
             });
         }
-        // static::created(function ($model) {
-        //     // Log who created this model
-        //     Log::info('Token for ' . class_basename($model) . ' created by ');
-        // });
     }
 }
