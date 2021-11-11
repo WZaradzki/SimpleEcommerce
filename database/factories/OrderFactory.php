@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class UserFactory extends Factory
+class OrderFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,10 +15,10 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'email' => $this->faker->unique()->safeEmail(),
-            'order_count' => $this->faker->randomDigit(),
+            'user_id' => User::inRandomOrder()->first(),
+            'status' => $this->faker->randomElement(['open' ,'closed']),
+            'value' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 10000) ,
             'created_at'=> $this->faker->dateTimeBetween($startDate = '-20 day', $endDate = 'now'),
         ];
     }
-
 }

@@ -7,38 +7,25 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Http\Traits\ModelLogTrait;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, ModelLogTrait;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
-     */
+    // public static function boot()
+    // {
+    //     static::created(function ($model) {
+    //         $model = $model->getData($model);
+    //     });
+    // }
+
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'email', 'order_count'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

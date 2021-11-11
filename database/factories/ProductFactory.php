@@ -3,9 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class UserFactory extends Factory
+class ProductFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,10 +14,9 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'email' => $this->faker->unique()->safeEmail(),
-            'order_count' => $this->faker->randomDigit(),
+            'name' => $this->faker->words(3, true),
+            'price' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 10000) ,
             'created_at'=> $this->faker->dateTimeBetween($startDate = '-20 day', $endDate = 'now'),
         ];
     }
-
 }
