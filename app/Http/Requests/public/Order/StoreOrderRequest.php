@@ -25,7 +25,7 @@ class StoreOrderRequest extends FormRequest
     {
         return [
             'product_id' => ['required', 'numeric', 'exists:products,id'],
-            'email' => ['required', 'email', 'unique:users'],
+            'email' => ['required', 'email'],
         ];
     }
 }

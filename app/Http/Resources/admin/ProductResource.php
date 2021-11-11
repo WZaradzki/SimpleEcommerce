@@ -16,7 +16,8 @@ class ProductResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'price' => $this->price . ' zł.',
+            'price' => $this->price,
+            'getFormattedPrice' => $this->getFormattedPrice(),
             'name' => $this->name,
             'created_at' => $this->created_at->toDateString(),
             'updated_at' => $this->updated_at->toDateString(),

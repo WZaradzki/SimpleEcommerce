@@ -23,11 +23,11 @@ class OrderController extends Controller
     {
         $product = Product::find($request->product_id);
 
-        $user = User::find($request->mail);
+        $user = User::where('email', $request->email)->first();
 
-        if(!$user){
-            
-           $user = User::create([
+        if (!$user) {
+
+            $user = User::create([
                 'email' => $request->email,
             ]);
         }
@@ -40,6 +40,4 @@ class OrderController extends Controller
 
         return new OrderResource($order);
     }
-
-
 }

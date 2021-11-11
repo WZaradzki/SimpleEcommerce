@@ -11,4 +11,9 @@ class Product extends Model
     use HasFactory, ModelLogTrait;
 
     protected $fillable = ['name', 'price'];
+
+    public function getFormattedPrice()
+    {
+        return $this->price . ' zł.';
+    }
 }
