@@ -20,7 +20,7 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'email' => ['required', 'email', 'unique:users'],
-            'order_count' => ['required', 'numeric'], 
+            'order_count' => [ 'numeric'], 
         ];
     }
 }

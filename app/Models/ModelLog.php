@@ -9,6 +9,6 @@ class ModelLog extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','action', 'data'];
+    protected $fillable = ['model','action', 'data'];
 
 }

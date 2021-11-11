@@ -26,10 +26,10 @@ class UpdateOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => ['required'],
-            'user_id' => ['required'],
-            'value' => ['required', 'numeric', 'between:0,99.99'],
-            'status' => Rule::in(['open', 'closed']),
+            'id' => ['numeric'],
+            'user_id' => ['numeric', 'exists:users,id'],
+            'value' => ['numeric'],
+            'status' => [Rule::in(['open', 'closed'])],
         ];
     }
 }

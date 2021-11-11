@@ -27,8 +27,8 @@ class StoreOrderRequest extends FormRequest
     {
         return [
             'user_id' => ['required'],
-            'value' => ['required', 'numeric', 'between:0,99.99'],
-            'status' => Rule::in(['open', 'closed']),
+            'value' => ['required', 'numeric'],
+            'status' => ['required', Rule::in(['open', 'closed'])],
         ];
     }
 }
